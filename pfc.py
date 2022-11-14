@@ -20,8 +20,9 @@ def pierreFeuilleCiseaux():
     #---------------------------------------Initialiser une variable playAgain à 'y'
     #Tant que scorePlayer < 2 et scoreCpu < 2
     while scorePlayer < 2 and scoreCpu < 2:
-        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction random()
-        cpuChoice = int(randint(0, 2))
+        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [0 , 2]
+
+        cpuChoice = randint(0, 2)
         #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction input("Que faites-vous ce tour ? ")
         playerChoice = float(input("0 pour pierre, 1 pour feuille ou 2 pour ciseaux: "))
         #Si playerChoice est égale à cpuChoice
@@ -92,25 +93,58 @@ pierreFeuilleCiseaux()
 
 
 
-
-
-#DEBUT
+#-----------------PSEUDO CODE------------------------#
 
 #On admet la fonction input() qui renvoit la valeur donner par le player
 #On admet la fonction random() qui renvoi une valeur aléatoire comprise entre 0 et 2 existe
 
-#Définir une fonction pierreFeuilleCiseaux qui permet au joueur de faire son choix
-    #Écrire les règles du jeu
+#Définir une fonction shifumiMenu qui permet d'appeler les fonctions de jeux selon les préférences du ou des joueurs
+    #Initialiser une variable gameMode à None
+                                                #Initialiser une variable playerChoice1 à None
+                                                #Initialiser une variable playerChoice2 à None
+                                                #Initialiser une variable scorePlayer1 à 0
+                                                #Initialiser une variable scorePlayer2 à 0
+                                                #Initialiser une variable scoreCpu à 0
+
+
+
+    #Appeler print("--------- MENU SIFUMI ----")
+    #Appeler print("0 - Quitter")
+    #Appeler print("1 - Mode Infini")
+    #Appeler print("2 - Mode Joueur vs Ordi")
+    #Appeler print("3 - Mode Joueur vs Joueur")
+    #Appeler print("---------------------------")
+    #Définir la variable gameMode avec comme valeur le retour de l'éxecution de la fonction float(input("Mode de jeu : "))
+
+
+    #Si le gameMode est égale à 1
+        #Executer la fonction infiniteGameMode
+    #Sinon si le gameMode est égale à 2
+        #Executer la fonction playerVersusCpuGameMode
+    #Sinon si le gameMode est égale à 3
+        #Executer la fonction playerVersusPlayerGameMode
+    #Sinon si le gameMode est égale à 0
+        #Afficher "bye bye salope"
+        #retourner
+    #Sinon si le gameMode est égale à 3.14
+        #Executer la fonction spokeGameMode
+
+
+
+
+
+
+
+
+
+#Définir la fonction infiniteGameMode qui permet de jouer au shifumi contre l'ordinateur à l'infinie
+    #Initialiser une variable infiniteContinue à 1
     #Initialiser une variable cpuChoice à None
     #Initialiser une variable playerChoice à None
-    #Initialiser une variable scorePlayer à 0
-    #Initialiser une variable scoreCpu à 0
-
-    #
-
-    #---------------------------------------Initialiser une variable playAgain à 'y'
-    #Tant que scorePlayer < 2 et scoreCpu < 2
-        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction random()
+    #Initialiser une variable cpuScore à 0
+    #Initialiser une variable playerScore à 0
+    #Tant que infiniteContinue est égale à 1
+        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [0 , 2]
         #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction input("Que faites-vous ce tour ? ")
         #Si playerChoice est égale à cpuChoice
             #Alors écrire "Egalité!"
@@ -137,15 +171,76 @@ pierreFeuilleCiseaux()
                 #Incrémenter scoreCpu de 1
         #Sinon : playerChoice ne renvoi à aucun élément du tableau game
             #Alors écrire "Choix impossible!"
+        #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
+        #Afficher une demande de continuer à jouer avec comme option oui(1) et non(0)
+        #Définir la variable infinitContinue avec comme le retour de l'éxecution de la fonction input("Voulez-vous continuez (1 pour oui, 0 pour non)")
+    #Sinon executer la fonction shifumiMenu
 
-    #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
 
-            #------------------------BONUS PEUT-ÊTRE FINI (à valider)------------------------
-            #Tant que playAgain est différent 'y' ou 'n'
-                #Assigner la résultante de l'appel d'input("Voulez vous rejouer (y/n) ? ") à la variable playAgain
-                #Si playAgain différent de 'y' ou 'n'
-                    #Alors afficher un message d'erreur
 
-#Executer la fonction pierreFeuilleCiseaux
 
-#FIN
+
+
+
+
+
+
+
+
+
+
+#Définir la fonction playerVersusCpuGameMode qui permet de jouer au shifumi contre l'ordinateur en fonction de set ou et de points
+    #Initialiser la variable scorePlayer à 0
+    #Initialiser la variable scoreCpu à 0
+    #Initialiser la variable setPlayer à 0
+    #Initialiser la variable setCpu à 0
+    #Initialiser la variable playerChoice à None
+    #Initialiser la variable cpuChoice à None
+    
+    #Tant que setPlayer < 2 et setCpu < 2, Alors...
+        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [0 , 2]
+        #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction input("Que faites-vous ce tour ? ")
+        #Si playerChoice est égale à cpuChoice
+            #Alors écrire "Egalité!"
+        #Sinon si playerChoice égale à 0
+            #Si cpuChoice égale à 2
+                #Alors écrire "Vous avez gagné!"
+                #Incrémenter scorePlayer de 1
+            #Sinon 
+                #Alors, écrire "Vous avez Perdu!"
+                #Incrémenter scoreCpu de 1
+        #Sinon si playerChoice égale à 1
+            #Si cpuChoice égale à 0
+                #Alors écrire "Vous avez gagné!"
+                #Incrémenter scorePlayer de 1
+            #Sinon 
+                #Alors, écrire "Vous avez Perdu!"
+                #Incrémenter scoreCpu à 1
+        #Sinon si playerChoice égale à 2
+            #Si cpuChoice égale de 1
+                #Alors écrire "Vous avez gagné!"
+                #Incrémenter scorePlayer de 1
+            #Sinon
+                #Alors écrire "Vous avez Perdu!"
+                #Incrémenter scoreCpu de 1
+        #Sinon : playerChoice ne renvoi à aucun élément du tableau game
+            #Alors écrire "Choix impossible!"
+        #Si scorePlayer est égal à 5, Alors...
+            #Assigner à scorePlayer la valeur 0
+            #Incrémenter setPlayer de 1
+    #Sinon executer la fonction shifumiMenu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Executer la fonction shifumiMenu
