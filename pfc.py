@@ -236,6 +236,8 @@ def shifumiTurn(movePlayer1, movePlayer2):
 
 #Définir la fonction spokeGameMode qui permet de jouer au shifumi avec les règles avancés
 def spokeGameMode():
+    #Afficher un message de bienvenue
+    print("Vous êtes arrivé dans le mode de jeu cacher, ici il y a 2 choix suplémentaire. Bonne chance !")
     #Initialiser une variable cpuChoice à None
     cpuChoice = None
     #Initialiser une variable playerChoice à None
@@ -251,6 +253,7 @@ def spokeGameMode():
         #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [1 , 5]
         cpuChoice = randint(1, 5)
         #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction float(input("1 pour pierre, 2 pour feuille, 3 pour ciseaux, 4 pour lézard ou 5 pour spoke: "))
+        print(" ")
         playerChoice = float(input("1 pour pierre, 2 pour feuille, 3 pour ciseaux, 4 pour lézard ou 5 pour spoke: "))
         #Si playerChoice est égale à cpuChoice
         if playerChoice == cpuChoice:
@@ -333,6 +336,7 @@ def spokeGameMode():
     #Afficher les scores de la partie à partir de playerScore et cpuScore 
     print("Voici le score final: ", playerScore, "/", cpuScore)
     #Afficher une demande de continuer à jouer avec comme option oui(1) et non(0)
+    print(" ")
     print("retour au menu")
     print("retour au menu.")
     print("retour au menu..")
@@ -350,8 +354,8 @@ def spokeGameMode():
 def shifumiMenu():
     #Initialiser une variable gameMode à None
     gameMode = None
-    #Appeler print("--------- MENU SIFUMI ----")
-    print("--------- MENU SIFUMI ----")
+    #Appeler print("--------- MENU SHIFUMI ----")
+    print("--------- MENU SHIFUMI ----")
     #Appeler print("0 - Quitter")
     print("0 - Quitter")
     #Appeler print("1 - Mode Infini")
@@ -381,6 +385,7 @@ def shifumiMenu():
     #Sinon si le gameMode est égale à 0
     elif gameMode == 0:
         #Afficher "arret du jeu"
+        print(" ")
         print("arrêt du jeu")
         print("arrêt du jeu.")
         print("arrêt du jeu..")
