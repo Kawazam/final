@@ -93,6 +93,8 @@ from random import randint
 #Définir une fonction shifumiTurn(movePlayer1, movePlayer2) qui renvoi le vainqueur du tour (j1 ou j2) à partir de leur choix respectif. Un retour à 0 signinfie pas de vainqueur
 def shifumiTurn(movePlayer1, movePlayer2):
     #Si movePlayer1 est égale à movePlayer2
+    print("~~~ entrer dans shifumiTurn")
+    print("~~~ movePlayer1 = " + str(movePlayer1))
     if movePlayer1 == movePlayer2:
         #Alors écrire "Egalité!"
         print("Égalité !")
@@ -145,28 +147,53 @@ def shifumiTurn(movePlayer1, movePlayer2):
         #Alors écrire "Choix impossible!"
         print("Choix Impossible !")
         #Retourner 0
+        return 0
 
 
 
 
 #Définir la fonction infiniteGameMode qui permet de jouer au shifumi contre l'ordinateur à l'infinie
+def infiniteGameMode():
     #Initialiser une variable infiniteContinue à 1
+    infiniteContinue = 1
     #Initialiser une variable cpuChoice à None
+    cpuChoice = None
     #Initialiser une variable playerChoice à None
+    playerChoice = None
     #Initialiser une variable cpuScore à 0
+    cpuScore = 0
     #Initialiser une variable playerScore à 0
+    playerScore = 0
     #Tant que infiniteContinue est égale à 1
-        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [0 , 2]
-        #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction input("Que faites-vous ce tour ? ")
+    while infiniteContinue:
+        #Assigner à cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [1 , 3]
+        cpuChoice = randint(1, 3)
+        #Assigner à playerChoice avec comme valeur le retour de l'éxecution de la fonction input("Que faites-vous ce tour ? ")
+        playerChoice = input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux ")
         #Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 1, Alors...
+        if shifumiTurn(playerChoice, cpuChoice) == 1:
             #Incrémenter playerScore de 1
+            playerScore = playerScore + 1
         #Sinon Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 2, Alors...
+        elif shifumiTurn(playerChoice, cpuChoice) == 2:
             #Incrémenter cpuScore de 1
+            cpuScore = cpuScore + 1
         #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
-        #Afficher une demande de continuer à jouer avec comme option oui(1) et non(0)
-        #Définir la variable infinitContinue avec comme le retour de l'éxecution de la fonction input("Voulez-vous continuez (1 pour oui, 0 pour non)")
-    #Sinon executer la fonction shifumiMenu
-
+        print("---=<( Vous - Ordi )>=---")
+        print("        " + str(playerScore) + " -  " + str(cpuScore))
+        print("---=<( SCORE  ACTU )>=---")
+        #Définir la variable infiniteContinue avec comme le retour de l'éxecution de la fonction input("Voulez-vous continuez (1 pour oui, 0 pour non)")
+        infiniteContinue = input("Voulez-vous continuez (1 pour oui, 0 pour non)")
+        #Si infiniteContinue > 0, Alors...
+        if infiniteContinue > 0:
+            #Assigner à infiniteContinue la valeur 1
+            infiniteContinue = 1
+        #Sinon : infiniteContinue est égal ou inférieur à 0, Alors...
+        else:
+            #Assigner à infiniteContinue la valeur 0
+            infiniteContinue = 0
+    #Éxecuter la fonction shifumiMenu
+    shifumiMenu()
 
 
 
@@ -373,7 +400,7 @@ def shifumiMenu():
     #Si le gameMode est égale à 1
     if gameMode == 1:
         #Executer la fonction infiniteGameMode
-        infinitGameMode()
+        infiniteGameMode()
     #Sinon si le gameMode est égale à 2
     elif gameMode == 2:
         #Executer la fonction playerVersusCpuGameMode
