@@ -241,6 +241,45 @@ pierreFeuilleCiseaux()
 
 
 
+#Définir la fonction spokeGameMode qui permet de jouer au shifumi avec les règles avancés
+    #Initialiser une variable infiniteContinue à 1
+    #Initialiser une variable cpuChoice à None
+    #Initialiser une variable playerChoice à None
+    #Initialiser une variable cpuScore à 0
+    #Initialiser une variable playerScore à 0
+    #Tant que infiniteContinue est égale à 1
+        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [0 , 2]
+        #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction input("Que faites-vous ce tour ? ")
+        #Si playerChoice est égale à cpuChoice
+            #Alors écrire "Egalité!"
+        #Sinon si playerChoice égale à 0
+            #Si cpuChoice égale à 2
+                #Alors écrire "Vous avez gagné!"
+                #Incrémenter scorePlayer de 1
+            #Sinon 
+                #Alors, écrire "Vous avez Perdu!"
+                #Incrémenter scoreCpu de 1
+        #Sinon si playerChoice égale à 1
+            #Si cpuChoice égale à 0
+                #Alors écrire "Vous avez gagné!"
+                #Incrémenter scorePlayer de 1
+            #Sinon 
+                #Alors, écrire "Vous avez Perdu!"
+                #Incrémenter scoreCpu à 1
+        #Sinon si playerChoice égale à 2
+            #Si cpuChoice égale de 1
+                #Alors écrire "Vous avez gagné!"
+                #Incrémenter scorePlayer de 1
+            #Sinon
+                #Alors écrire "Vous avez Perdu!"
+                #Incrémenter scoreCpu de 1
+        #Sinon : playerChoice ne renvoi à aucun élément du tableau game
+            #Alors écrire "Choix impossible!"
+        #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
+        #Afficher une demande de continuer à jouer avec comme option oui(1) et non(0)
+        #Définir la variable infinitContinue avec comme le retour de l'éxecution de la fonction input("Voulez-vous continuez (1 pour oui, 0 pour non)")
+    #Sinon executer la fonction shifumiMenu
+
 
 
 #Executer la fonction shifumiMenu
