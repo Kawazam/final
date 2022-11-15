@@ -1,156 +1,66 @@
 # #DEBUT
 
-# #On admet la fonction input() qui renvoit la valeur donner par le player
-# #On admet la fonction random() qui renvoi une valeur aléatoire comprise entre 0 et 2 existe
+
+#--------------LIBRARY--------------#
+
+#On admet la fonction input() qui renvoit la valeur donner par le player
+#On admet la fonction random() qui renvoi une valeur aléatoire comprise entre 0 et 2 existe
 from random import randint
-
-# #Définir une fonction pierreFeuilleCiseaux qui permet au joueur de faire son choix
-# def pierreFeuilleCiseaux():
-#     #Écrire les règles du jeu
-#     print("règles du jeu")
-#     #Créer un tableau game = ["pierre","feuille","ciseaux"]
-#     #Initialiser une variable cpuChoice à None
-#     cpuChoice = None
-#     #Initialiser une variable playerChoice à None
-#     playerChoice = None
-#     #Initialiser une variable scorePlayer à 0
-#     scorePlayer = 0
-#     #Initialiser une variable scoreCpu à 0
-#     scoreCpu = 0
-#     #---------------------------------------Initialiser une variable playAgain à 'y'
-#     #Tant que scorePlayer < 2 et scoreCpu < 2
-#     while scorePlayer < 2 and scoreCpu < 2:
-#         #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [1 , 3]
-#         cpuChoice = randint(1, 3)
-#         #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction float(input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux: "))
-#         playerChoice = float(input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux: "))
-#         #Si playerChoice est égale à cpuChoice
-#         if playerChoice == cpuChoice:
-#             #Alors écrire "Egalité!"
-#             print("bah non, vous avez fait la même")
-#         #Sinon si playerChoice égale à 1
-#         elif playerChoice == 1:
-#             #Si cpuChoice égale à 3
-#             if cpuChoice == 3:
-#                 #Alors écrire "Vous avez gagné!"
-#                 print("gg mon reuf, il a joué les ciseaux ce boulet")
-#                 #Incrémenter scorePlayer de 1
-#                 scorePlayer = scorePlayer + 1
-#             #Sinon 
-#             else:
-#                 #Alors, écrire "Vous avez Perdu!"
-#                 print("raté du con")
-#                 #Incrémenter scoreCpu de 1
-#                 scoreCpu = scoreCpu + 1
-#         #Sinon si playerChoice égale à 2
-#         elif playerChoice == 2:
-#             #Si cpuChoice égale à 1
-#             if cpuChoice == 1:
-#                 #Alors écrire "Vous avez gagné!"
-#                 print("bien joué il a pas penser que tu jouerais la feuille")
-#                 #Incrémenter scorePlayer de 1
-#                 scorePlayer = scorePlayer + 1
-#             #Sinon 
-#             else:
-#                 #Alors, écrire "Vous avez Perdu!"
-#                 print("you lose pauv' merde")
-#                 #Incrémenter scoreCpu à 1
-#                 scoreCpu = scoreCpu + 1
-#         #Sinon si playerChoice égale à 3
-#         elif playerChoice == 3:
-#             #Si cpuChoice égale de 2
-#             if cpuChoice == 2:
-#                 #Alors écrire "Vous avez gagné!"
-#                 print("Alors là c'est bien joué, il avait pas vu venir le ciseau")
-#                 #Incrémenter scorePlayer de 1
-#                 scorePlayer = scorePlayer + 1
-#             #Sinon
-#             else:
-#                 #Alors écrire "Vous avez Perdu!"
-#                 print("tu pers face à un toaster, ta mère as honte de toi")
-#                 #Incrémenter scoreCpu de 1
-#                 scoreCpu = scoreCpu + 1
-#         #Sinon : playerChoice ne renvoi à aucun élément du tableau game
-#         else:
-#             #Alors écrire "Choix impossible!"
-#             print("t'as trois option et tu trouve le moyen de te foirer... débile")
-
-#     #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
-#     print(scorePlayer, "/", scoreCpu, ", bah voilà les scores, mouais pas ouf")
-
-#             #------------------------BONUS PEUT-ÊTRE FINI (à valider)------------------------
-#             #Tant que playAgain est différent 'y' ou 'n'
-#                 #Assigner la résultante de l'appel d'input("Voulez vous rejouer (y/n) ? ") à la variable playAgain
-#                 #Si playAgain différent de 'y' ou 'n'
-#                     #Alors afficher un message d'erreur
-
-# #Executer la fonction pierreFeuilleCiseaux
-# pierreFeuilleCiseaux()
+#On admet la fonction os() qui permet d'éxecuter des commandes dans la console
+import os
+#Préparation pour vider le contenu de la console
+clear = lambda: os.system('cls')
 
 
 
+
+#--------------------------------------SHIFIMI TURN----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Définir une fonction shifumiTurn(movePlayer1, movePlayer2) qui renvoi le vainqueur du tour (j1 ou j2) à partir de leur choix respectif. Un retour à 0 signinfie pas de vainqueur
 def shifumiTurn(movePlayer1, movePlayer2):
-    #Si movePlayer1 est égale à movePlayer2
-    print("~~~ entrer dans shifumiTurn")
-    print("~~~ movePlayer1 = " + str(movePlayer1))
+    #Si movePlayer1 est égale à movePlayer2, Alors...
     if movePlayer1 == movePlayer2:
-        #Alors écrire "Egalité!"
-        print("Égalité !")
         #Retourner 0
         return 0
-    #Sinon si movePlayer1 égale à 1
+    #Sinon si movePlayer1 égale à 1, Alors...
     elif movePlayer1 == 1:
-        #Si movePlayer2 égale à 3
+        #Si movePlayer2 égale à 3, Alors...
         if movePlayer2 == 3:
-            #Alors afficher "+1 pt pour le Joueur 1"
-            print("+1 pt pour le Joueur 1")
             #Retourner 1
             return 1
-        #Sinon
+        #Sinon, Alors...
         else:
-            #Alors afficher "+1 pt pour le Joueur 2"
-            print("+1 pt pour le Joueur 2")
             #Retourner 2
             return 2
-    #Sinon si movePlayer1 égale à 2
+    #Sinon si movePlayer1 égale à 2, Alors...
     elif movePlayer1 == 2:
-        #Si movePlayer2 égale à 1
+        #Si movePlayer2 égale à 1, Alors...
         if movePlayer2 == 1:
-            #Alors afficher "+1 pt pour le Joueur 1"
-            print("+1 pt pour le Joueur 1")
             #Retourner 1
             return 1
         #Sinon
         else:
-            #Alors afficher "+1 pt pour le Joueur 2"
-            print("+1 pt pour le Joueur 2")
             #Retourner 2
             return 2
-    #Sinon si movePlayer1 égale à 3
+    #Sinon si movePlayer1 égale à 3, Alors...
     elif movePlayer1 == 3:
-        #Si movePlayer2 égale de 2
+        #Si movePlayer2 égale de 2, Alors...
         if movePlayer2 == 2:
-            #Alors afficher "+1 pt pour le Joueur 1"
-            print("+1 pt pour le Joueur 1")
             #Retourner 1
             return 1
-        #Sinon
+        #Sinon, Alors...
         else:
-            #Alors afficher "+1 pt pour le Joueur 2"
-            print("+1 pt pour le Joueur 2")
             #Retourner 2
             return 2
-    #Sinon Si aucun des 2 movePlayer n'est valide (entre 1 et 3)
-    elif (movePlayer1 < 1 or movePlayer1 > 3):
-        #Alors écrire "Choix impossible!"
-        print("Choix Impossible !")
-        #Retourner 0
-        return 0
+    #Sinon Si aucun des 2 movePlayer n'est valide (entre 1 et 3), Alors...
+    elif (movePlayer1 < 1 or movePlayer1 > 3) or (movePlayer2 < 1 or movePlayer2 > 3):
+        #Retourner -1
+        return -1
 
 
 
+
+#------------------------------------------INFINITE----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Définir la fonction infiniteGameMode qui permet de jouer au shifumi contre l'ordinateur à l'infinie
 def infiniteGameMode():
@@ -169,21 +79,34 @@ def infiniteGameMode():
         #Assigner à cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [1 , 3]
         cpuChoice = randint(1, 3)
         #Assigner à playerChoice avec comme valeur le retour de l'éxecution de la fonction input("Que faites-vous ce tour ? ")
-        playerChoice = input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux ")
-        #Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 1, Alors...
-        if shifumiTurn(playerChoice, cpuChoice) == 1:
+        playerChoice = int(input("\n1 pour pierre, 2 pour feuille ou 3 pour ciseaux "))
+        #Si le retour de l'appel de la fonction shifumiTurn (playerChoice, cpuChoice) est égal à 0, Alors...
+        if shifumiTurn(playerChoice, cpuChoice) == 0:
+            #Afficher "Score inchangé..."
+            print("Égalité !")
+            print("Score Inchangé...")
+        #Sinon Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 1, Alors...
+        elif shifumiTurn(playerChoice, cpuChoice) == 1:
             #Incrémenter playerScore de 1
             playerScore = playerScore + 1
-        #Sinon Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 2, Alors...
+            #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
+            print("---=<( Vous - Ordi )>=---")
+            print("        " + str(playerScore) + " -  " + str(cpuScore))
+            print("---=<( SCORE  ACTU )>=---")
+        #Sinon : le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 2, Alors...
         elif shifumiTurn(playerChoice, cpuChoice) == 2:
             #Incrémenter cpuScore de 1
             cpuScore = cpuScore + 1
-        #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
-        print("---=<( Vous - Ordi )>=---")
-        print("        " + str(playerScore) + " -  " + str(cpuScore))
-        print("---=<( SCORE  ACTU )>=---")
+            #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
+            print("---=<( Vous - Ordi )>=---")
+            print("        " + str(playerScore) + " -  " + str(cpuScore))
+            print("---=<( SCORE  ACTU )>=---")
+        #Sinon : le retour de la fonction shifumiTurn est différente de 0, 1 ou 2, Alors...
+        else:
+            #Afficher une erreur de saisie
+            print("\n!!! CHOIX INVALIDE !!!")
         #Définir la variable infiniteContinue avec comme le retour de l'éxecution de la fonction input("Voulez-vous continuez (1 pour oui, 0 pour non)")
-        infiniteContinue = input("Voulez-vous continuez (1 pour oui, 0 pour non)")
+        infiniteContinue = int(input("\nVoulez-vous continuez (1 pour oui, 0 pour non) "))
         #Si infiniteContinue > 0, Alors...
         if infiniteContinue > 0:
             #Assigner à infiniteContinue la valeur 1
@@ -192,77 +115,193 @@ def infiniteGameMode():
         else:
             #Assigner à infiniteContinue la valeur 0
             infiniteContinue = 0
+    #Afficher le retour au menu principale
+    print("\nretour au menu")
+    print("retour au menu.")
+    print("retour au menu..")
+    print("retour au menu...\n")
     #Éxecuter la fonction shifumiMenu
     shifumiMenu()
 
 
 
 
-
-
-
-
-
-
-
-
+#------------------------------------------PLAYER VS CPU----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Définir la fonction playerVersusCpuGameMode qui permet de jouer au shifumi contre l'ordinateur en fonction de set ou et de points
+def playerVersusCpuGameMode():
     #Initialiser la variable scorePlayer à 0
+    playerScore = 0
     #Initialiser la variable scoreCpu à 0
+    cpuScore = 0
     #Initialiser la variable setPlayer à 0
+    setPlayer = 0
     #Initialiser la variable setCpu à 0
+    setCpu = 0
     #Initialiser la variable playerChoice à None
+    playerChoice = None
     #Initialiser la variable cpuChoice à None
-    
+    cpuChoice = None
     #Tant que setPlayer < 2 et setCpu < 2, Alors...
-        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [1 , 3]
-        #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux: ")
-        #Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 1, Alors...
-            #Incrémenter scorePlayer de 1
-        #Sinon Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 2, Alors...
-            #Incrémenter scoreCpu de 1
-        #Si scorePlayer est égal à 5, Alors...
-            #Assigner à scorePlayer la valeur 0
+    while setPlayer < 2 and setCpu < 2:
+        #Assigner à cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [1 , 3]
+        cpuChoice = randint(1, 3)
+        #Assigner à playerChoice avec comme valeur le retour de l'éxecution de la fonction input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux: ")
+        playerChoice = int(input("\n1 pour pierre, 2 pour feuille ou 3 pour ciseaux "))
+        #Si le retour de l'appel de la fonction shifumiTurn (playerChoice, cpuChoice) est égal à 0, Alors...
+        if shifumiTurn(playerChoice, cpuChoice) == 0:
+            #Afficher "Score inchangé..."
+            print("Égalité !")
+            print("Score Inchangé...")
+        #Sinon Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 1, Alors...
+        elif shifumiTurn(playerChoice, cpuChoice) == 1:
+            #Incrémenter playerScore de 1
+            playerScore = playerScore + 1
+            #Afficher les scores de la partie à partir de playerScore et cpuScore 
+            print("---=<( Vous - Ordi )>=---")
+            print("        " + str(playerScore) + " -  " + str(cpuScore))
+            print("---=<( SCORE  ACTU )>=---")
+        #Sinon : le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 2, Alors...
+        elif shifumiTurn(playerChoice, cpuChoice) == 2:
+            #Incrémenter cpuScore de 1
+            cpuScore = cpuScore + 1
+            #Afficher les scores de la partie à partir de playerScore et cpuScore 
+            print("---=<( Vous - Ordi )>=---")
+            print("        " + str(playerScore) + " -  " + str(cpuScore))
+            print("---=<( SCORE  ACTU )>=---")
+        #Sinon : le retour de la fonction shifumiTurn est différente de 0, 1 ou 2, Alors...
+        else:
+            #Afficher une erreur de saisie
+            print("\n!!! CHOIX INVALIDE !!!")
+        #Si playerScore est égal à 5, Alors...
+        if playerScore == 5:
+            #Assigner à playerScore la valeur 0
+            playerScore = 0
+            #Assigner à cpuScore la valeur 0
+            cpuScore = 0
             #Incrémenter setPlayer de 1
-    #Sinon executer la fonction shifumiMenu
+            setPlayer = setPlayer + 1
+            #Afficher les set actuels
+            print("\n!!! LA PARTIE REBOOT !!!")
+            print("Set du joueur - Set de l'ordinateur")
+            print(str(setPlayer) + " - " + str(setCpu))
+        #Si cpuScore est égal à 5, Alors...
+        if cpuScore == 5:
+            #Vider le contenu de la console
+            clear()
+            #Assigner à playerScore la valeur 0
+            playerScore = 0
+            #Assigner à cpuScore la valeur 0
+            cpuScore = 0
+            #Incrémenter setCpu de 1
+            setCpu = setCpu + 1
+            #Afficher les set actuels
+            print("\n!!! LA PARTIE REBOOT !!!")
+            print("Set du joueur - Set de l'ordinateur")
+            print(str(setPlayer) + " - " + str(setCpu))
+    #Afficher le retour au menu principale
+    print("\nretour au menu")
+    print("retour au menu.")
+    print("retour au menu..")
+    print("retour au menu...\n")
+    #Éxecuter la fonction shifumiMenu
+    shifumiMenu()
 
 
 
 
+#------------------------------------------PLAYER VS PLAYER----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Définir la fonction playerVersusPlayerGameMode qui permet de jouer au shifumi contre l'ordinateur en fonction de set ou et de points
+def playerVersusPlayerGameMode():
     #Initialiser la variable scorePlayer1 à 0
+    playerScore1 = 0
     #Initialiser la variable scorePlayer2 à 0
+    playerScore2 = 0
     #Initialiser la variable setPlayer1 à 0
+    setPlayer1 = 0
     #Initialiser la variable setPlayer2 à 0
+    setPlayer2 = 0
     #Initialiser la variable playerChoice1 à None
+    playerChoice1 = None
     #Initialiser la variable playerChoice2 à None
+    playerChoice2 = None
     
-    #Tant que setPlayer < 2 et setCpu < 2, Alors...
-        #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [0 , 2]
-        #Définir la variable playerChoice avec comme valeur le retour de l'éxecution de la fonction input("Que faites-vous ce tour ? ")
-        #Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 1, Alors...
-            #Incrémenter scorePlayer1 de 1
-        #Sinon Si le retour de l'appel de la fonction shifumiTurn(playerChoice, cpuChoice) est égal à 2, Alors...
-            #Incrémenter scorePlayer2 de 1
-        #Si scorePlayer1 est égal à 5, Alors...
-            #Assigner à scorePlayer1 la valeur 0
+    #Tant que setPlayer1 < 2 et setPlayer2 < 2, Alors...
+    while setPlayer1 < 2 and setPlayer2 < 2:
+        #Assigner à playerChoice1 la valeur le retour de l'éxecution de la fonction input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux: ")
+        playerChoice1 = int(input("\n1 pour pierre, 2 pour feuille ou 3 pour ciseaux: "))
+        #Vider le contenu de la console
+        clear()
+        #Assigner à playerChoice2 la valeur le retour de l'éxecution de la fonction input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux: ")
+        playerChoice2 = int(input("1 pour pierre, 2 pour feuille ou 3 pour ciseaux: "))
+        if shifumiTurn(playerChoice1, playerChoice2) == 0:
+            #Afficher "Score inchangé..."
+            print("Égalité !")
+            print("Score Inchangé...")
+        #Sinon Si le retour de l'appel de la fonction shifumiTurn(playerChoice1, playerChoice2) est égal à 1, Alors...
+        elif shifumiTurn(playerChoice1, playerChoice2) == 1:
+            #Incrémenter playerScore1 de 1
+            playerScore1 = playerScore1 + 1
+            #Afficher les scores de la partie à partir de playerScore1 et playerScore2 
+            print("---=<( Vous - Adve )>=---")
+            print("        " + str(playerScore1) + " -  " + str(playerScore2))
+            print("---=<( SCORE  ACTU )>=---")
+        #Sinon : le retour de l'appel de la fonction shifumiTurn(playerChoice1, playerChoice2) est égal à 2, Alors...
+        elif shifumiTurn(playerChoice1, playerChoice2) == 2:
+            #Incrémenter playerScore2 de 1
+            playerScore2 = playerScore2 + 1
+            #Afficher les scores de la partie à partir de playerScore1 et playerScore2 
+            print("---=<( Vous - Adve )>=---")
+            print("        " + str(playerScore1) + " -  " + str(playerScore2))
+            print("---=<( SCORE  ACTU )>=---")
+        #Sinon : le retour de la fonction shifumiTurn est différente de 0, 1 ou 2, Alors...
+        else:
+            #Afficher une erreur de saisie
+            print("\n!!! CHOIX INVALIDE !!!")
+        #Si playerScore1 est égal à 5, Alors...
+        if playerScore1 == 5:
+            #Assigner à playerScore1 la valeur 0
+            playerScore1 = 0
+            #Assigner à playerScore2 la valeur 0
+            playerScore2 = 0
             #Incrémenter setPlayer1 de 1
-            #Afficher les set gagné de la partie jusque-là pour les deux participants
-        #Si scorePlayer2 est égal à 5, Alors...
-            #Assigner à scorePlayer2 la valeur 0
+            setPlayer1 = setPlayer1 + 1
+            #Afficher les set actuels
+            print("\n!!! LA PARTIE REBOOT !!!")
+            print("Set du joueur 1 - Set du joueur 2")
+            print(str(setPlayer1) + " - " + str(setPlayer2))
+        #Si playerScore2 est égal à 5, Alors...
+        if playerScore2 == 5:
+            #Vider le contenu de la console
+            clear()
+            #Assigner à playerScore1 la valeur 0
+            playerScore1 = 0
+            #Assigner à playerScore2 la valeur 0
+            playerScore2 = 0
             #Incrémenter setPlayer2 de 1
-            #Afficher les set gagné de la partie jusque-là pour les deux participants
+            setPlayer2 = setPlayer2 + 1
+            #Afficher les set actuels
+            print("\n!!! LA PARTIE REBOOT !!!")
+            print("Set du joueur - Set de l'ordinateur")
+            print(str(setPlayer1) + " - " + str(setPlayer2))
+    #Afficher le retour au menu principale
+    print("\nretour au menu")
+    print("retour au menu.")
+    print("retour au menu..")
+    print("retour au menu...\n")
     #Éxecuter la fonction shifumiMenu
+    shifumiMenu()
 
 
 
 
-
+#------------------------------------------SPOKE----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Définir la fonction spokeGameMode qui permet de jouer au shifumi avec les règles avancés
 def spokeGameMode():
+    #Vider le contenu de la console
+    clear()
     #Afficher un message de bienvenue
     print("Vous êtes arrivé dans le mode de jeu cacher, ici il y a 2 choix suplémentaire. Bonne chance !")
     #Initialiser une variable cpuChoice à None
@@ -273,8 +312,6 @@ def spokeGameMode():
     cpuScore = 0
     #Initialiser une variable playerScore à 0
     playerScore = 0
-    #Initialiser une variable cpuName avec comme valeur un nom aléatoir dans la liste ("Jean", "Michel", "Etienne")
-    # cpuName = randint("Jean", "Michel", "Etienne", "Bob")
     #Tant que infiniteContinue est égale à 1
     while playerScore < 5 and cpuScore < 5:
         #Définir la variable cpuChoice avec comme valeur le retour de l'éxecution de la fonction randint() dans l'intervalle [1 , 5]
@@ -284,98 +321,119 @@ def spokeGameMode():
         playerChoice = float(input("1 pour pierre, 2 pour feuille, 3 pour ciseaux, 4 pour lézard ou 5 pour spoke: "))
         #Si playerChoice est égale à cpuChoice
         if playerChoice == cpuChoice:
-            #Alors écrire "Egalité!"
-            print("Égalité, essaie encore !")
+            #Afficher "Score inchangé..."
+            print("Égalité !")
+            print("Score Inchangé...")
         #Sinon si playerChoice égale à 1
         elif playerChoice == 1:
             #Si cpuChoice égale à 3 ou à 4
             if cpuChoice == 3 or cpuChoice == 4:
-                #Alors écrire "Vous avez gagné!"
-                print("Vous marquez 1 point")
                 #Incrémenter playerScore de 1
                 playerScore = playerScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
             #Sinon
             else:
-                #Alors, écrire "Vous avez Perdu!"
-                print("L'ordinateur marque 1 point")
                 #Incrémenter cpuScore de 1
                 cpuScore = cpuScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
         #Sinon si playerChoice égale à 2
         elif playerChoice == 2:
             #Si cpuChoice égale à 1 ou à 5
             if cpuChoice == 1 or cpuChoice == 5:
-                #Alors écrire "Vous avez gagné!"
-                print("Vous marquez 1 point")
                 #Incrémenter playerScore de 1
                 playerScore = playerScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
             #Sinon
             else:
-                #Alors, écrire "Vous avez Perdu!"
-                print("L'ordinateur marque 1 point")
                 #Incrémenter cpuScore de 1
                 cpuScore = cpuScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
         #Sinon si playerChoice égale à 3
         elif playerChoice == 3:
             #Si cpuChoice égale de 2 ou à 4
             if cpuChoice == 2 or cpuChoice == 4:
-                #Alors écrire "Vous avez gagné!"
-                print("Vous marquez 1 point")
                 #Incrémenter playerScore de 1
                 playerScore = playerScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
             #Sinon
             else:
-                #Alors, écrire "Vous avez Perdu!"
-                print("L'ordinateur marque 1 point")
                 #Incrémenter cpuScore de 1
                 cpuScore = cpuScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
         #Sinon si playerChoice égale à 4
         elif playerChoice == 4:
             #Si cpuChoice égale de 2 ou à 5
             if cpuChoice == 2 or cpuChoice == 5:
-                #Alors écrire "Vous avez gagné!"
-                print("Vous marquez 1 point")
                 #Incrémenter playerScore de 1
                 playerScore = playerScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
             #Sinon
             else:
-                #Alors, écrire "Vous avez Perdu!"
-                print("L'ordinateur marque 1 point")
                 #Incrémenter cpuScore de 1
                 cpuScore = cpuScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
         #Sinon si playerChoice égale à 5
         elif playerChoice == 5:
             #Si cpuChoice égale de 1 ou à 3
             if cpuChoice == 1 or cpuChoice == 3:
-                #Alors écrire "Vous avez gagné!"
-                print("Vous marquez 1 point")
                 #Incrémenter playerScore de 1
                 playerScore = playerScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
             #Sinon
             else:
-                #Alors, écrire "Vous avez Perdu!"
-                print("L'ordinateur marque 1 point")
                 #Incrémenter cpuScore de 1
                 cpuScore = cpuScore + 1
+                #Afficher les set actuels
+                print("---=<( Vous - Ordi )>=---")
+                print("        " + str(playerScore) + " -  " + str(cpuScore))
+                print("---=<( SCORE  ACTU )>=---")
         #Sinon : playerChoice ne renvoi à aucun élément du tableau game
         else:
-            #Alors écrire "Choix impossible!"
-            print("Se choix ne fait pas parti des propositions.")
+            #Afficher une erreur de saisie
+            print("\n!!! CHOIX INVALIDE !!!")
     #Afficher les scores de la partie à partir de playerScore et cpuScore 
-    print("Voici le score final: ", playerScore, "/", cpuScore)
-    #Afficher une demande de continuer à jouer avec comme option oui(1) et non(0)
-    print(" ")
-    print("retour au menu")
+    print("---=<( Vous - Ordi )>=---")
+    print("        " + str(playerScore) + " -  " + str(cpuScore))
+    print("---=<( SCORE  FINAL )>=---")
+    #Afficher le retour au menu principale
+    print("\nretour au menu")
     print("retour au menu.")
     print("retour au menu..")
-    print("retour au menu...")
-    #Sinon executer la fonction shifumiMenu
+    print("retour au menu...\n")
+    #Éxecuter la fonction shifumiMenu
     shifumiMenu()
 
 
 
 
-
-#----------------------------MENU------------------------------
+#------------------------------------------MENU----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Définir une fonction shifumiMenu qui permet d'appeler les fonctions de jeux selon les préférences du ou des joueurs
 def shifumiMenu():
@@ -426,7 +484,5 @@ def shifumiMenu():
 
 #Executer la fonction shifumiMenu
 shifumiMenu()
-
-
 
 #FIN
