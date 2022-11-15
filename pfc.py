@@ -19,6 +19,13 @@ clear = lambda: os.system('cls')
 #Définir une fonction shifumiTurn(movePlayer1, movePlayer2) qui renvoi le vainqueur du tour (j1 ou j2) à partir de leur choix respectif. Un retour à 0 signinfie pas de vainqueur
 def shifumiTurn(movePlayer1, movePlayer2):
     #Si movePlayer1 est égale à movePlayer2, Alors...
+
+
+    print("~~~ movePlayer1 = " + str(movePlayer1))
+    print("~~~ movePlayer2 = " + str(movePlayer2))
+    print("~~~ movePlayer1 valide ? : " + str(movePlayer1 < 1 or movePlayer1 > 3))
+
+
     if movePlayer1 == movePlayer2:
         #Retourner 0
         return 0
@@ -53,7 +60,7 @@ def shifumiTurn(movePlayer1, movePlayer2):
             #Retourner 2
             return 2
     #Sinon Si aucun des 2 movePlayer n'est valide (entre 1 et 3), Alors...
-    elif (movePlayer1 < 1 or movePlayer1 > 3) or (movePlayer2 < 1 or movePlayer2 > 3):
+    elif (movePlayer1 < 1 or movePlayer1 > 3) and (movePlayer2 < 1 or movePlayer2 > 3):
         #Retourner -1
         return -1
 
