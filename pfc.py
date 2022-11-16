@@ -256,7 +256,7 @@ def playerVersusPlayerGameMode():
             #Incrémenter playerScore1 de 1
             playerScore1 = playerScore1 + 1
             #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
-            print("---=<( Vous - Ordi )>=---")
+            print("----=<( J1 - J2 )>=----")
             print("        " + str(playerScore1) + " -  " + str(playerScore2))
             print("---=<( SCORE  ACTU )>=---")
         #Sinon Si turnResult est égal à 2, Alors...
@@ -264,7 +264,7 @@ def playerVersusPlayerGameMode():
             #Incrémenter playerScore2 de 1
             playerScore2 = playerScore2 + 1
             #Afficher les scores de la partie à partir de scorePlayer et scoreCpu 
-            print("---=<( Vous - Ordi )>=---")
+            print("----=<( J1 - J2 )>=----")
             print("        " + str(playerScore1) + " -  " + str(playerScore2))
             print("---=<( SCORE  ACTU )>=---")
         #Sinon : le retour de la fonction shifumiTurn est différente de 0, 1 ou 2, Alors...
@@ -495,6 +495,7 @@ def shifumiMenu():
         spokeGameMode()
 
 #Executer la fonction shifumiMenu
+clear()
 shifumiMenu()
 
 #FIN
